@@ -2,17 +2,16 @@
 function controllo(){
     var email=document.getElementById('email').value;
     email=email.trim();
-    if(email.length !=0 || !email.includes('@')){
+    if(email.length !=0 && !email.includes('@')){
         let index1= email.indexOf('@');
         let emailParts=email.split('@');
-        console.log(email.length);
         if(emailParts[0].length >=1){
             let domain=emailParts[1].split('.');
             if(domain[0].length >=1){
                 let afterDomain=domain[1];
-                console.log(afterDomain);
                 if(afterDomain.length >= 2){
                     document.getElementById('emailError').innerHTML = 'CORRECT';
+                    console.log("EMAIL CORRECT");
                 }else{
                     document.getElementById('emailError').innerHTML = 'DOMAIN NOT RIGHT'    
                 }
@@ -36,6 +35,7 @@ function controllo(){
 
             if (hasUpperCase && hasNumber && hasSpecialChar) {
                 document.getElementById('passError').innerHTML = 'CORRECT';
+                console.log("PASSWORD CORRECT");
             } else {
                 var errorMessage = 'PASSWORD MUST INCLUDE ';
                 if (!hasUpperCase) errorMessage += 'ONE UPPERCASE LETTER, ';
